@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Time Password </title>
+    <style>
+        body {
+            background: lightblue; 
+            text-align: center;
+            font-family: arial;
+            color: navy;
+        }
+        button {
+            padding: 10px; 
+            background:violet;
+        }
+        a {
+            font-size: 0.5em; 
+            color: maroon;
+        }
+    </style>
+</head>
+<body onload="otpnew()">
+    <h1> Final Verification Step </h1>
+    <h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a onclick="otpnew()" href="#"> New OTP </a></h2>
+    <button onclick="enterotp()"> Enter the OTP as shown above </button>
+
+    <script>
+        function otpnew() {
+            var otp = "";
+            var i = 0; 
+            while (i < 6) {
+                otp += Math.floor(Math.random() * 10); 
+                i++;
+            }
+            document.getElementById("otp").textContent = otp; 
+        }
+
+        function enterotp() {
+            var inputotp = prompt("Please enter the OTP:");
+            var showedotp = document.getElementById("otp").textContent;
+            
+            if (inputotp === showedotp) {
+                window.open("https://open.spotify.com/track/5CUQnKjA6nlteCnxMKsjIu");
+            }
+            else {
+                alert("Your inputted OTP is incorrect. Please try again! :(");
+            }
+        }
+    </script>
+</body>
+</html>
