@@ -45,6 +45,7 @@
             }
             else {
                 alert("Your inputted OTP is incorrect. Please try again! :(");
+                otpnew();
             }
         }
     </script>
